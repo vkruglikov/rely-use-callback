@@ -1,6 +1,6 @@
 import {useCallback as _useCallback, DependencyList} from 'react';
 
-const $IS_USE_CALLBACK_FUNCTION_SYMBOL = Symbol('__IS_USE_CALLBACK_FUNCTION_SYMBOL');
+const $IS_USE_CALLBACK_FUNCTION_SYMBOL = Symbol('IS_RELY_ON_USE_CALLBACK_FUNCTION');
 
 export interface UseCallbackFunction<T extends Function> {
     [$IS_USE_CALLBACK_FUNCTION_SYMBOL]: true
