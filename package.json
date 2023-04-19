@@ -1,0 +1,34 @@
+{
+  "name": "rely-use-callback",
+  "version": "0.0.1",
+  "description": "Rely on useCallback in react app",
+  "source": "./src/index.ts",
+  "exports": {
+    "require": "./lib/react-telegram-web-app.cjs",
+    "default": "./lib/react-telegram-web-app.modern.js"
+  },
+  "main": "lib/react-telegram-web-app.cjs",
+  "module": "lib/react-telegram-web-app.module.js",
+  "unpkg": "lib/react-telegram-web-app.umd.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rm -rf ./lib/*; microbundle build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vkruglikov/rely-use-callback.git"
+  },
+  "author": "Valentin Kruglikov dev.n@bk.ru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vkruglikov/rely-use-callback/issues"
+  },
+  "homepage": "https://github.com/vkruglikov/rely-use-callback#readme",
+  "devDependencies": {
+    "@types/react": "^18.0.37",
+    "microbundle": "^0.15.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
