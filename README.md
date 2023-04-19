@@ -1,10 +1,12 @@
 # rely-use-callback
 
-Rely on useCallback in your react app, and checking types 🥂
+Rely on useCallback in your React app and control types 🥂
 
-[![License](https://badgen.net/github/license/vkruglikov/react-telegram-web-app)](https://github.com/vkruglikov/react-telegram-web-app/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/rely-use-callback.svg)](https://www.npmjs.com/package/rely-use-callback)
+[![types](https://badgen.net/npm/types/rely-use-callback)](https://npmjs.org/package/rely-use-callback)
+[![License](https://badgen.net/github/license/vkruglikov/rely-use-callback)](https://github.com/vkruglikov/rely-use-callback/blob/master/LICENSE)
 
-## When is it needed?
+## ✨ When is it needed?
 
 Sometimes you need to check if a function exact is created by `useCallback`.
  
@@ -48,6 +50,6 @@ const App = () => {
 }
 ```
 
-## License
+## 🥂 License
 
 [MIT](./LICENSE)
