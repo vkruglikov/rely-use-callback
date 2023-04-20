@@ -1,6 +1,6 @@
 {
   "name": "rely-use-callback",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Rely on useCallback in react app",
   "source": "./src/index.ts",
   "exports": {
