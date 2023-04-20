@@ -1,11 +1,14 @@
 # rely-use-callback
 
-Rely on useCallback in your React app and control types 🥂
+Rely on typed `useCallback` in your ReactApp 🥂
 
 [![npm](https://img.shields.io/npm/v/rely-use-callback.svg)](https://www.npmjs.com/package/rely-use-callback)
 [![types](https://badgen.net/npm/types/rely-use-callback)](https://npmjs.org/package/rely-use-callback)
 [![License](https://badgen.net/github/license/vkruglikov/rely-use-callback)](https://github.com/vkruglikov/rely-use-callback/blob/master/LICENSE)
 
+
+##  ✨ Typed `useCallback`
+Use type `RelyCallback` to have type guard for `memo` components and `hooks` dependencies
 
 ## 📦 Install & Usage
 
@@ -34,7 +37,7 @@ const MemoizedComponent:FC<{
 
 When you use `useCallback` hook from `rely-use-callback`,
 you can use type `RelyCallback` and save type guard on these cases
-and rely on callback function in your React App
+and rely on callback function in your ReactApp
 
 
 ## 🤖 Motivation
