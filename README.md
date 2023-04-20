@@ -97,6 +97,20 @@ const App = () => {
 }
 ```
 
+## 💪💪💪 Extra more productive way
+
+A more productive way is to use typed `useCallback` in conjunction with [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+
+More about this eslint rules you can read on [plugin page](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+```json
+{
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}
+```
+
 ## 🥂 License
 
 [MIT](./LICENSE)
