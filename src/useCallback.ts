@@ -1,27 +1,54 @@
+/**
+ * @author Valentin Kruglikov <dev.n@bk.ru>
+ */
+
 import {useMemo as _useMemo, DependencyList} from 'react';
 
-const $IS_USE_CALLBACK_FUNCTION_SYMBOL = Symbol('IS_RELY_ON_USE_CALLBACK_FUNCTION');
+const $IS_USE_RELY_CALLBACK_HOOK = Symbol('IS_USE_RELY_CALLBACK_HOOK');
 
-type ArrowFunction = (...args: any[]) => any
-
-export interface ReliableCallback<T extends ArrowFunction> {
-    (...args: Parameters<T>) : ReturnType<T>;
-    [$IS_USE_CALLBACK_FUNCTION_SYMBOL]: true
-}
-
-const reliableCallbackFactory = <T extends ArrowFunction>(callback: T) => (): ReliableCallback<T> => {
-    const newFn = (...args: Parameters<T>) => callback(...args);
-    Object.defineProperty(newFn, $IS_USE_CALLBACK_FUNCTION_SYMBOL, { value: true });
-    if (callback.name) {
-        Object.defineProperty(newFn, 'name', { value: `rely(${callback.name})` });
-    }
-
-    return newFn as ReliableCallback<T>;
-};
+type AnyCallbackFunction = (...args: any[]) => any
 
 /**
+ * Use this type everywhere, when you want to expect callback exactly with save reference
+ * For this you need to use {@link useCallback} instead {@link react#useCallback}
+ *
+ * @see https://github.com/vkruglikov/rely-use-callback#readme
+ */
+export interface RelyCallback<T extends AnyCallbackFunction = AnyCallbackFunction> {
+    (...args: Parameters<T>) : ReturnType<T>;
+    /**
+     * @remarks
+     * If you use {@link useCallback} function from 'rely-use-callback'
+     * instead {@link react#useCallback} from 'react' it is property will be true
+     *
+     * @see https://github.com/vkruglikov/rely-use-callback#readme
+     */
+    [$IS_USE_RELY_CALLBACK_HOOK]: true
+}
+
+/**
+ * User-defined type guards function for {@link RelyCallback}
+ */
+export const isRelyCallback = (callback: AnyCallbackFunction): callback is RelyCallback =>
+    typeof callback === 'function' &&
+    !!callback[$IS_USE_RELY_CALLBACK_HOOK]
+
+/**
+ * This is hook return the same result as {@link react#useCallback}
+ * but with additional type guard, what possible us to check callback type
+ * by {@link RelyCallback} type
+ *
+ * @remarks
  * Ignore using `extends Function`
  * https://github.com/DefinitelyTyped/DefinitelyTyped/issues/52873#issuecomment-845806435
  */
-export const useCallback = <T extends ArrowFunction>(callback: T, deps: DependencyList): ReliableCallback<T> =>
-    _useMemo(reliableCallbackFactory(callback), deps);
+export const useCallback = <T extends AnyCallbackFunction>(callback: T, deps: DependencyList): RelyCallback<T> =>
+    _useMemo((): RelyCallback<T> => {
+        const newFn = (...args: Parameters<T>) => callback(...args);
+        Object.defineProperty(newFn, $IS_USE_RELY_CALLBACK_HOOK, { value: true });
+        if (callback.name) {
+            Object.defineProperty(newFn, 'name', { value: `rely(${callback.name})` });
+        }
+
+        return newFn as RelyCallback<T>;
+    }, deps);
