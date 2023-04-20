@@ -1,18 +1,17 @@
 {
   "name": "rely-use-callback",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Rely on useCallback in react app",
   "type": "module",
   "source": "src/index.ts",
   "exports": {
-    "types": "./lib/rely-use-callback.d.ts",
     "require": "./lib/rely-use-callback.cjs",
     "default": "./lib/rely-use-callback.modern.js"
   },
   "main": "./lib/rely-use-callback.cjs",
   "module": "./lib/rely-use-callback.module.js",
   "unpkg": "./lib/rely-use-callback.umd.js",
-  "types": "./lib/rely-use-callback.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "rm -rf ./lib/*; microbundle build"
   },
