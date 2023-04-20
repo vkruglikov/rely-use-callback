@@ -13,7 +13,9 @@
   "unpkg": "./lib/rely-use-callback.umd.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "rm -rf ./lib/*; microbundle build"
+    "build": "rm -rf ./lib/*; microbundle build",
+    "changeset": "changeset",
+    "release": "npm run build && changeset publish"
   },
   "repository": {
     "type": "git",
@@ -26,10 +28,13 @@
   },
   "homepage": "https://github.com/vkruglikov/rely-use-callback#readme",
   "devDependencies": {
+    "@changesets/cli": "^2.26.1",
+    "microbundle": "^0.15.1",
     "@types/react": "^18.0.37",
-    "microbundle": "^0.15.1"
+    "react": "^18.2.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^17 || ^18",
+    "@types/react": "^17 || 18"
   }
 }
