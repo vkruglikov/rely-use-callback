@@ -1,5 +1,11 @@
 # rely-use-callback
 
+## 0.0.9
+
+### Patch Changes
+
+- 2e1865f: Change readme.md
+
 ## 0.0.8
 
 ### Patch Changes
