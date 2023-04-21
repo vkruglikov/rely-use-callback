@@ -10,36 +10,6 @@ Rely on typed `useCallback` in your ReactApp 🥂
 ##  ✨ Typed `useCallback`
 Use type `RelyCallback` to have type guard for `memo` components and `hooks` dependencies
 
-## 📦 Install & Usage
-
-1️⃣ Install by running: `npm i rely-use-callback --save`
-
-2️⃣ Replace a `useCallback` from react with a `useCallback` from `rely-use-callback`:
-
-```diff typescript jsx
-- import { useCallback } from 'react';
-+ import { useCallback, RelyCallback } from 'rely-use-callback';
-
-const useSomethinkToDoOnEffect = (  
--    todoFunction: () => void
-+    todoFunction: RelyCallback<() => void>
-) => {  
-    useEffect(() => {  
-        todoFunction()  
-    }, [ todoFunction ]);  
-}
-
-const MemoizedComponent:FC<{  
--    onClick: RelyCallback<() => void>
-+    onClick: () => void 
-}> = memo(() => <ChildComponent onClick={onClick} />)
-```
-
-When you use `useCallback` hook from `rely-use-callback`,
-you can use type `RelyCallback` and save type guard on these cases
-and rely on callback function in your ReactApp
-
-
 ## 🤖 Motivation
 
 Sometimes you need to check if a function exact is created by `useCallback`.
@@ -96,6 +66,35 @@ const App = () => {
     );
 }
 ```
+
+## 📦 Install & Usage
+
+1️⃣ Install by running: `npm i rely-use-callback --save`
+
+2️⃣ Replace a `useCallback` from react with a `useCallback` from `rely-use-callback`:
+
+```diff typescript jsx
+- import { useCallback } from 'react';
++ import { useCallback, RelyCallback } from 'rely-use-callback';
+
+const useSomethinkToDoOnEffect = (  
+-    todoFunction: () => void
++    todoFunction: RelyCallback<() => void>
+) => {  
+    useEffect(() => {  
+        todoFunction()  
+    }, [ todoFunction ]);  
+}
+
+const MemoizedComponent:FC<{  
+-    onClick: RelyCallback<() => void>
++    onClick: () => void 
+}> = memo(() => <ChildComponent onClick={onClick} />)
+```
+
+When you use `useCallback` hook from `rely-use-callback`,
+you can use type `RelyCallback` and save type guard on these cases
+and rely on callback function in your ReactApp
 
 ## 💪💪💪 Extra more productive way
 
