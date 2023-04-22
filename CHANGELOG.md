@@ -1,5 +1,11 @@
 # rely-use-callback
 
+## 0.0.10
+
+### Patch Changes
+
+- 51ea8c8: Fix readme
+
 ## 0.0.9
 
 ### Patch Changes
