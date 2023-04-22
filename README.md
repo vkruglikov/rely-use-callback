@@ -67,6 +67,21 @@ const App = () => {
 }
 ```
 
+## 😲 You probably don't need use this package
+
+I think, this code matches for you at 99 %, but up to you
+
+```typescript jsx
+import { DependencyList, useCallback as _useCallback } from "react";
+
+interface UseCallback<T extends Function> {}
+
+const useCallback = <T extends Function>(
+    handler: T,
+    deps: DependencyList
+): UseCallback<T> => _useCallback(handler, deps);
+```
+
 ## 📦 Install & Usage
 
 1️⃣ Install by running: `npm i rely-use-callback --save`
